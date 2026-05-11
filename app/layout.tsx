@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Niels Experience — Live Experience Captain @ Livewall",
+  title: "Niels Laumans — Live Experience Captain @ Livewall",
   description:
-    "An interactive application by Niels Laumans for the Live Experience Captain role at Livewall. Event energy. Creative execution. Live moments that stick.",
+    "Een cinematische sollicitatie van Niels Laumans voor de rol Live Experience Captain bij Livewall. Duik mee de oceaan in.",
   openGraph: {
-    title: "The Niels Experience",
+    title: "Niels Laumans · Duik mee",
     description:
-      "Event energy. Creative execution. Live moments that stick. An interactive application for Livewall.",
+      "Geen pitch deck. Een onderwater experience. Sollicitatie voor Live Experience Captain bij Livewall.",
     type: "website",
   },
 };
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -32,7 +32,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-stage-950 text-white antialiased selection:bg-neon-pink selection:text-white">
+      <body className="bg-ocean-abyss text-white antialiased selection:bg-bio-cyan selection:text-ocean-abyss">
         {children}
       </body>
     </html>

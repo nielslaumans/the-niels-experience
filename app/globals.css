@@ -7,84 +7,191 @@
   --font-body: "Inter", system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
-  background: #05050a;
+  background: #020812;
   color: #f5f5f7;
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
-/* Custom selection */
 ::selection {
-  background: #ff2d87;
-  color: #ffffff;
+  background: #00f0ff;
+  color: #020812;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a14;
+  background: #020812;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #22e8ff, #ff2d87);
+  background: linear-gradient(180deg, #7ed4f0 0%, #1a7eb8 30%, #0a3d6b 60%, #020812 100%);
   border-radius: 4px;
 }
 
-/* Reusable utility layers */
+/* The page is one giant gradient that simulates descent */
+main {
+  background:
+    linear-gradient(
+      180deg,
+      #4fb8d9 0%,
+      #2e9bc5 6%,
+      #1a7eb8 14%,
+      #0e5a91 24%,
+      #0a3d6b 38%,
+      #06294f 52%,
+      #051a3a 68%,
+      #030f25 82%,
+      #020812 92%,
+      #000000 100%
+    );
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
-  .neon-text {
+  .glow-cyan {
     text-shadow:
-      0 0 10px rgba(34, 232, 255, 0.7),
-      0 0 30px rgba(34, 232, 255, 0.4);
+      0 0 14px rgba(0, 240, 255, 0.7),
+      0 0 36px rgba(0, 240, 255, 0.35);
   }
-
-  .neon-pink {
+  .glow-aqua {
     text-shadow:
-      0 0 10px rgba(255, 45, 135, 0.7),
-      0 0 30px rgba(255, 45, 135, 0.4);
+      0 0 14px rgba(62, 236, 191, 0.7),
+      0 0 36px rgba(62, 236, 191, 0.3);
+  }
+  .glow-warm {
+    text-shadow:
+      0 0 14px rgba(255, 179, 71, 0.6),
+      0 0 36px rgba(255, 179, 71, 0.3);
   }
 
   .glass {
-    background: rgba(20, 20, 35, 0.55);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: linear-gradient(
+      135deg,
+      rgba(15, 44, 82, 0.5) 0%,
+      rgba(8, 24, 50, 0.65) 100%
+    );
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 0 0 1px rgba(0, 240, 255, 0.04) inset,
+      0 30px 60px -30px rgba(0, 0, 0, 0.7);
   }
 
-  .grid-bg {
+  .glass-warm {
+    background: linear-gradient(
+      135deg,
+      rgba(40, 80, 120, 0.5) 0%,
+      rgba(20, 40, 70, 0.6) 100%
+    );
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 215, 150, 0.12);
+  }
+
+  .outline-text {
+    -webkit-text-stroke: 2px #00f0ff;
+    color: transparent;
+    text-shadow: none;
+  }
+
+  .water-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
   }
 
-  .vignette {
-    background:
-      radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #00f0ff 0%,
+      #3eecbf 25%,
+      #ffffff 50%,
+      #3eecbf 75%,
+      #00f0ff 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 6s ease-in-out infinite;
   }
 
-  .gradient-mask-b {
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  .vignette-radial {
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
   }
 }
 
-/* Section spacing */
 section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 90px;
 }
 
-/* Marquee container */
 .marquee-track {
   display: flex;
   width: max-content;
+}
+
+.bubble {
+  will-change: transform, opacity;
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(0, 240, 255, 0.25) 40%,
+    transparent 70%
+  );
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.45);
+}
+
+/* Light ray (god ray) helper */
+.light-ray {
+  position: absolute;
+  top: -10%;
+  width: 30vw;
+  height: 110%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  transform-origin: top center;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Marine life silhouettes */
+.fish-lane {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Cinematic fade-in for sections */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
