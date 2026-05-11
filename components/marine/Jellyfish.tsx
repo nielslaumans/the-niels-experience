@@ -1,19 +1,10 @@
 "use client";
 
-type Props = {
-  size?: number;
-  glow?: string;
-};
+type Props = { size?: number; glow?: string };
 
 export default function Jellyfish({ size = 80, glow = "#7df9ff" }: Props) {
   return (
-    <svg
-      width={size}
-      height={size * 1.4}
-      viewBox="0 0 100 140"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
+    <svg width={size} height={size * 1.4} viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
         <radialGradient id="bell" cx="50%" cy="40%" r="50%">
           <stop offset="0%" stopColor={glow} stopOpacity="0.9" />
@@ -25,20 +16,8 @@ export default function Jellyfish({ size = 80, glow = "#7df9ff" }: Props) {
           <stop offset="100%" stopColor={glow} stopOpacity="0" />
         </linearGradient>
       </defs>
-
-      {/* Bell */}
-      <path
-        d="M15 50 Q15 15, 50 15 Q85 15, 85 50 Q85 60, 80 65 L20 65 Q15 60, 15 50 Z"
-        fill="url(#bell)"
-        stroke={glow}
-        strokeOpacity="0.6"
-        strokeWidth="1"
-      />
-
-      {/* Inner glow */}
+      <path d="M15 50 Q15 15, 50 15 Q85 15, 85 50 Q85 60, 80 65 L20 65 Q15 60, 15 50 Z" fill="url(#bell)" stroke={glow} strokeOpacity="0.6" strokeWidth="1" />
       <ellipse cx="50" cy="40" rx="20" ry="10" fill={glow} opacity="0.25" />
-
-      {/* Tentacles */}
       <g stroke="url(#tentacles)" strokeWidth="1" fill="none">
         <path d="M25 65 Q30 90, 22 130">
           <animate attributeName="d" values="M25 65 Q30 90, 22 130; M25 65 Q20 90, 28 130; M25 65 Q30 90, 22 130" dur="6s" repeatCount="indefinite" />

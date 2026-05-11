@@ -2,14 +2,10 @@
 
 import { motion } from "framer-motion";
 
-type Props = {
-  count?: number;
-  intensity?: "soft" | "strong";
-};
+type Props = { count?: number; intensity?: "soft" | "strong" };
 
 export default function LightRays({ count = 4, intensity = "soft" }: Props) {
   const opacity = intensity === "strong" ? 0.55 : 0.3;
-
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       {Array.from({ length: count }).map((_, i) => {

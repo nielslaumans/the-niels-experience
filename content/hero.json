@@ -1,0 +1,15 @@
+{
+  "badge": "Sollicitatie · Live Experience Captain",
+  "greetingPrefix": "Hi, ik ben",
+  "greetingName": "Niels.",
+  "subBadge": "Eindhoven · 24 jaar",
+  "intro": "Ik bouw werelden waar mensen even in verdwijnen. Met muziek, sfeer, en momenten die blijven hangen. Welkom op de oppervlakte.",
+  "ctaLabel": "Duik mee",
+  "scrollHint": "Of scroll. Het water is rustig.",
+  "portrait": {
+    "src": "/niels-portrait.jpg",
+    "alt": "Niels Laumans",
+    "objectPosition": "center 0%",
+    "zoom": 4.0
+  }
+}

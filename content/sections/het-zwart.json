@@ -1,0 +1,23 @@
+{
+  "closingHeadline": {
+    "lead": "Some people organize events.",
+    "shimmer": "I want to create worlds people remember."
+  },
+  "midDivider": "Tot zover",
+  "invite": {
+    "lead": "Let's build experiences",
+    "highlight": "together",
+    "suffix": "."
+  },
+  "contact": {
+    "availability": "Bereikbaar · Eindhoven, NL",
+    "name": "Niels Laumans",
+    "tagline": "Event coordinator · Creative producer · Mede oprichter Zeester",
+    "email": "niels.laumans@gmail.com",
+    "phone": "+31 6 19 06 51 99",
+    "phoneHref": "+31619065199",
+    "cvHref": "/cv-niels-laumans.pdf",
+    "linkedinHref": "https://www.linkedin.com/in/niels-laumans/"
+  },
+  "outro": "Einde van de duik · dank dat je meeging"
+}
